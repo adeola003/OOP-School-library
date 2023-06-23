@@ -84,22 +84,23 @@ class App
   def create_teacher(name, age)
     print 'Specialization: '
     specialization = gets.chomp
-    person = Teacher.new(rand, age, specialization, name)
+    person = Teacher.new(age, specialization, name)
     @people << person
     puts 'Teacher created successfully.'
   end
 
-  def create_student(_name, _age)
-    print 'Classroom label: '
-    classroom_label = gets.chomp
-    classroom = find_classroom_by_label(classroom_label)
-    if classroom.nil?
-      puts 'Classroom not found. Creating a new one.'
-      classroom = Classroom.new(classroom_label)
-    end
-    person = Student.new(classroom, name, age)
-    @people << person
-    puts 'Student created successfully.'
+  def create_student(name, age)
+    print 'Has parent permission? [Y/N] : '
+      permission = gets.chomp
+      if permission == 'Y'
+        student = Student.new(age, 'first', name)
+        classroom = Classroom.new('first')
+        classroom.add_student(student)
+        @people << student
+        puts 'Person created successfully.'
+      else
+        puts 'No permission = No account creation'
+      end
   end
 
   def create_book
