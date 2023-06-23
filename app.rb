@@ -1,3 +1,8 @@
+require_relative 'classroom'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'book'
+
 class App
   def initialize
     @books = []
@@ -66,8 +71,8 @@ class App
     name = gets.chomp
     print 'Age: '
     age = gets.chomp.to_i
-    print 'Is a teacher? (y/n): '
-    is_teacher = gets.chomp.downcase == 'y'
+    print 'Enter 1 for a teacher of 2 for a student: '
+    is_teacher = gets.chomp.downcase == '1'
 
     if is_teacher
       create_teacher(name, age)
@@ -79,7 +84,7 @@ class App
   def create_teacher(name, age)
     print 'Specialization: '
     specialization = gets.chomp
-    person = Teacher.new(age, name, specialization)
+    person = Teacher.new(rand, age, specialization, name)
     @people << person
     puts 'Teacher created successfully.'
   end
@@ -92,7 +97,7 @@ class App
       puts 'Classroom not found. Creating a new one.'
       classroom = Classroom.new(classroom_label)
     end
-    person = Student.new(classroom)
+    person = Student.new(classroom, name, age)
     @people << person
     puts 'Student created successfully.'
   end
