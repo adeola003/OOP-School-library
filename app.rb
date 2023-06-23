@@ -92,16 +92,16 @@ class App
 
   def create_student(name, age)
     print 'Has parent permission? [Y/N] : '
-      permission = gets.chomp
-      if permission == 'Y'
-        student = Student.new(age, 'first', name)
-        classroom = Classroom.new('first')
-        classroom.add_student(student)
-        @people << student
-        puts 'Person created successfully.'
-      else
-        puts 'No permission = No account creation'
-      end
+    permission = gets.chomp
+    if permission == 'Y'
+      student = Student.new(age, 'first', name)
+      classroom = Classroom.new('first')
+      classroom.add_student(student)
+      @people << student
+      puts 'Person created successfully.'
+    else
+      puts 'No permission = No account creation'
+    end
   end
 
   def create_book
@@ -142,6 +142,7 @@ class App
 
     puts 'Rental created successfully.'
   end
+
   def list_rentals_for_person
     print 'Enter person name: '
     person_name = gets.chomp
@@ -181,5 +182,4 @@ class App
   def find_person_by_name(name)
     @people.find { |person| person.name == name }
   end
-
 end
