@@ -3,8 +3,10 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rentals'
+require_relative 'modules'
 
 class App
+  include LibraryUtils
   def initialize
     @books = []
     @people = []
@@ -118,6 +120,9 @@ class App
 
   def create_rental
     puts 'Enter rental details:'
+  puts 'List of people:'
+  list_all_people
+
     print 'Person name: '
     person_name = gets.chomp
     person = find_person_by_name(person_name)
@@ -125,6 +130,9 @@ class App
       puts 'Person not found.'
       return
     end
+
+  puts 'List of books:'
+  list_all_books
 
     print 'Book title: '
     book_title = gets.chomp
@@ -145,8 +153,11 @@ class App
 
   def list_rentals_for_person
     print 'Enter person name: '
-    person_name = gets.chomp
-    person = find_person_by_name(person_name)
+    puts 'List of people:'
+    list_all_people
+    print 'Enter person id: '
+    person_id = gets.chomp.to_i
+    person = find_person_by_id(person_id)
     if person.nil?
       puts 'Person not found.'
       return
@@ -164,18 +175,4 @@ class App
     end
   end
 
-  def find_book_by_title(book_title)
-    @books.find { |book| book.title == book_title }
   end
-
-  def find_classroom_by_label(classroom_label)
-    @people.each do |person|
-      return person.classroom if person.is_a?(Student) && person.classroom.label == classroom_label
-    end
-    nil
-  end
-
-  def find_person_by_name(name)
-    @people.find { |person| person.name == name }
-  end
-end
