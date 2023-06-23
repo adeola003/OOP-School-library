@@ -2,6 +2,7 @@ require_relative 'classroom'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
+require_relative 'rentals'
 
 class App
   def initialize
@@ -117,9 +118,9 @@ class App
 
   def create_rental
     puts 'Enter rental details:'
-    print 'Person ID: '
-    person_id = gets.chomp.to_i
-    person = find_person_by_id(person_id)
+    print 'Person name: '
+    person_name = gets.chomp
+    person = find_person_by_name(person_name)
     if person.nil?
       puts 'Person not found.'
       return
@@ -141,11 +142,10 @@ class App
 
     puts 'Rental created successfully.'
   end
-
   def list_rentals_for_person
-    print 'Enter person ID: '
-    person_id = gets.chomp.to_i
-    person = find_person_by_id(person_id)
+    print 'Enter person name: '
+    person_name = gets.chomp
+    person = find_person_by_name(person_name)
     if person.nil?
       puts 'Person not found.'
       return
@@ -177,4 +177,9 @@ class App
     end
     nil
   end
+
+  def find_person_by_name(name)
+    @people.find { |person| person.name == name }
+  end
+
 end
