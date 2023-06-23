@@ -120,9 +120,8 @@ class App
 
   def create_rental
     puts 'Enter rental details:'
-  puts 'List of people:'
-  list_all_people
-
+    puts 'List of people:'
+    list_all_people
     print 'Person name: '
     person_name = gets.chomp
     person = find_person_by_name(person_name)
@@ -130,10 +129,8 @@ class App
       puts 'Person not found.'
       return
     end
-
-  puts 'List of books:'
-  list_all_books
-
+    puts 'List of books:'
+    list_all_books
     print 'Book title: '
     book_title = gets.chomp
     book = find_book_by_title(book_title)
@@ -141,13 +138,10 @@ class App
       puts 'Book not found.'
       return
     end
-
     print 'Rental date (YYYY-MM-DD): '
     date = gets.chomp
-
     rental = Rental.new(date, book, person)
     @rentals << rental
-
     puts 'Rental created successfully.'
   end
 
@@ -174,5 +168,4 @@ class App
       end
     end
   end
-
-  end
+end
