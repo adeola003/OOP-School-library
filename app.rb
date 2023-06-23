@@ -164,10 +164,6 @@ class App
     end
   end
 
-  def find_person_by_id(person_id)
-    @people.find { |person| person.id == person_id }
-  end
-
   def find_book_by_title(book_title)
     @books.find { |book| book.title == book_title }
   end
