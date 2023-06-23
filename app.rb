@@ -120,52 +120,55 @@ class App
 
   def create_rental
     puts 'Enter rental details:'
+    list_all_people_and_select_person
+    list_all_books_and_select_book
+    enter_rental_date_and_create_rental
+  end
+
+  private
+
+  def list_all_people_and_select_person
     puts 'List of people:'
     list_all_people
+
     print 'Person name: '
     person_name = gets.chomp
     person = find_person_by_name(person_name)
+
     if person.nil?
       puts 'Person not found.'
       return
     end
+
+    @selected_person = person
+  end
+
+  def list_all_books_and_select_book
     puts 'List of books:'
     list_all_books
+
     print 'Book title: '
     book_title = gets.chomp
     book = find_book_by_title(book_title)
+
     if book.nil?
       puts 'Book not found.'
       return
     end
+
+    @selected_book = book
+  end
+
+  def enter_rental_date_and_create_rental
     print 'Rental date (YYYY-MM-DD): '
     date = gets.chomp
-    rental = Rental.new(date, book, person)
+
+    rental = Rental.new(date, @selected_book, @selected_person)
     @rentals << rental
+
     puts 'Rental created successfully.'
   end
 
-  def list_rentals_for_person
-    print 'Enter person name: '
-    puts 'List of people:'
-    list_all_people
-    print 'Enter person id: '
-    person_id = gets.chomp.to_i
-    person = find_person_by_id(person_id)
-    if person.nil?
-      puts 'Person not found.'
-      return
-    end
 
-    rentals = @rentals.select { |rental| rental.person == person }
 
-    if rentals.empty?
-      puts 'No rentals found for the person.'
-    else
-      puts "Listing rentals for #{person.name}:"
-      rentals.each do |rental|
-        puts "Book: #{rental.book.title}, Rental Date: #{rental.date}"
-      end
-    end
-  end
 end

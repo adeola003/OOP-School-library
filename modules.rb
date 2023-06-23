@@ -39,4 +39,28 @@ module LibraryUtils
     end
     nil
   end
+
+  def list_rentals_for_person
+    print 'Enter person name: '
+    puts 'List of people:'
+    list_all_people
+    print 'Enter person id: '
+    person_id = gets.chomp.to_i
+    person = find_person_by_id(person_id)
+    if person.nil?
+      puts 'Person not found.'
+      return
+    end
+
+    rentals = @rentals.select { |rental| rental.person == person }
+
+    if rentals.empty?
+      puts 'No rentals found for the person.'
+    else
+      puts "Listing rentals for #{person.name}:"
+      rentals.each do |rental|
+        puts "Book: #{rental.book.title}, Rental Date: #{rental.date}"
+      end
+    end
+  end
 end
