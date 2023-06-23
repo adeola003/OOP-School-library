@@ -125,8 +125,6 @@ class App
     enter_rental_date_and_create_rental
   end
 
-  private
-
   def list_all_people_and_select_person
     puts 'List of people:'
     list_all_people
@@ -168,7 +166,4 @@ class App
 
     puts 'Rental created successfully.'
   end
-
-
-
 end
