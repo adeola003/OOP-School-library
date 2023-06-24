@@ -50,24 +50,6 @@ class App
     end
   end
 
-  def list_all_books
-    if @books.empty?
-      puts 'No books available.'
-    else
-      puts 'Listing all books:'
-      @books.each { |book| puts "#{book.title} by #{book.author}" }
-    end
-  end
-
-  def list_all_people
-    if @people.empty?
-      puts 'No people available.'
-    else
-      puts 'Listing all people:'
-      @people.each { |person| puts "#{person.name} (ID: #{person.id})" }
-    end
-  end
-
   def create_person
     puts 'Enter person details:'
     print 'Name: '
@@ -129,9 +111,9 @@ class App
     puts 'List of people:'
     list_all_people
 
-    print 'Person name: '
-    person_name = gets.chomp
-    person = find_person_by_name(person_name)
+    print 'Enter the number of the person: '
+    person_number = gets.chomp.to_i
+    person = @people[person_number]
 
     if person.nil?
       puts 'Person not found.'
@@ -145,9 +127,9 @@ class App
     puts 'List of books:'
     list_all_books
 
-    print 'Book title: '
-    book_title = gets.chomp
-    book = find_book_by_title(book_title)
+    print 'Enter the number of the book: '
+    book_number = gets.chomp.to_i
+    book = @books[book_number]
 
     if book.nil?
       puts 'Book not found.'

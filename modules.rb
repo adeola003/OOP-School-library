@@ -14,8 +14,8 @@ def list_all_people
     puts 'No people available.'
   else
     puts 'Listing all people:'
-    @people.each do |person|
-      puts "#{person.id}. #{person.name}"
+    @people.each_with_index do |person, index|
+      puts "#{index}. #{person.name} - (ID: #{person.id})"
     end
   end
 end
@@ -42,7 +42,6 @@ module LibraryUtils
 
   def list_rentals_for_person
     print 'Enter person name: '
-    puts 'List of people:'
     list_all_people
     print 'Enter person id: '
     person_id = gets.chomp.to_i
