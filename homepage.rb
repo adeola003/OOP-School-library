@@ -1,4 +1,3 @@
-
 def display_options
   puts "\nPlease choose an option:"
   puts '1. List all books'

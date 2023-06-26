@@ -5,6 +5,7 @@ require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
 require_relative 'homepage'
+require_relative 'create_teacher'
 
 class App
   include LibraryUtils
@@ -24,8 +25,6 @@ class App
     end
     puts 'Thank you for using the Console Library App. Goodbye!'
   end
-
-  display_options()
 
   def handle_choice(choice)
     case choice
@@ -54,14 +53,6 @@ class App
     else
       create_student(name, age)
     end
-  end
-
-  def create_teacher(name, age)
-    print 'Specialization: '
-    specialization = gets.chomp
-    person = Teacher.new(age, specialization, name)
-    @people << person
-    puts 'Teacher created successfully.'
   end
 
   def create_student(name, age)
