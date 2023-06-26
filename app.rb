@@ -4,6 +4,7 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
+require_relative 'homepage'
 
 class App
   include LibraryUtils
@@ -24,18 +25,7 @@ class App
     puts 'Thank you for using the Console Library App. Goodbye!'
   end
 
-  private
-
-  def display_options
-    puts "\nPlease choose an option:"
-    puts '1. List all books'
-    puts '2. List all people'
-    puts '3. Create a person'
-    puts '4. Create a book'
-    puts '5. Create a rental'
-    puts '6. List rentals for a person'
-    puts '7. Quit'
-  end
+  display_options()
 
   def handle_choice(choice)
     case choice
