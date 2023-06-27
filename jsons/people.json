@@ -1,23 +1,23 @@
 [
   {
-    "type": "Student",
-    "id": 58,
+    "type": "Teacher",
+    "id": 13,
     "age": 25,
     "name": "mahabub",
+    "specialization": "oop"
+  },
+  {
+    "type": "Teacher",
+    "id": 48,
+    "age": 30,
+    "name": "abdel",
+    "specialization": "dev"
+  },
+  {
+    "type": "Student",
+    "id": 99,
+    "age": 22,
+    "name": "tom",
     "parent_permission": true
-  },
-  {
-    "type": "Teacher",
-    "id": 44,
-    "age": 44,
-    "name": "Abel",
-    "specialization": "dev"
-  },
-  {
-    "type": "Teacher",
-    "id": 50,
-    "age": 29,
-    "name": "Adeola",
-    "specialization": "dev"
   }
 ]

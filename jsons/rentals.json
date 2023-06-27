@@ -1,12 +1,17 @@
 [
   {
-    "person_name": "Abel",
-    "book_title": "OOP",
+    "person_name": "mahabub",
+    "book_title": "Rails API development",
     "date": "2023-06-27"
   },
   {
-    "person_name": "Adeola",
-    "book_title": "Sea of souls",
-    "date": "2023-10-05"
+    "person_name": "abdel",
+    "book_title": "OOP-ruby",
+    "date": "2023-06-28"
+  },
+  {
+    "person_name": "tom",
+    "book_title": "Ruby programming",
+    "date": "2023-06-30"
   }
 ]

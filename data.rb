@@ -15,7 +15,13 @@ module SavingData
                           'parent_permission' => person.parent_permission }
       end
     end
-    File.write('jsons/people.json', JSON.pretty_generate(saved_people))
+
+    if File.exist?('jsons/people.json')
+      File.write('jsons/people.json', JSON.pretty_generate(saved_people))
+    else
+      json_file = saved_people.to_json
+      File.write('jsons/people.json', json_file)
+    end
   end
 
   def save_books(books)
@@ -23,7 +29,13 @@ module SavingData
     books.each do |book|
       saved_books << { 'title' => book.title, 'author' => book.author }
     end
-    File.write('jsons/books.json', JSON.pretty_generate(saved_books))
+
+    if File.exist?('jsons/books.json')
+      File.write('jsons/books.json', JSON.pretty_generate(saved_books))
+    else
+      json_file = saved_books.to_json
+      File.write('jsons/books.json', json_file)
+    end
   end
 
   def save_rentals(rentals)
@@ -31,7 +43,13 @@ module SavingData
     rentals.each do |rental|
       saved_rentals << { 'person_name' => rental.person.name, 'book_title' => rental.book.title, 'date' => rental.date }
     end
-    File.write('jsons/rentals.json', JSON.pretty_generate(saved_rentals))
+
+    if File.exist?('jsons/rentals.json')
+      File.write('jsons/rentals.json', JSON.pretty_generate(saved_rentals))
+    else
+      json_file = saved_rentals.to_json
+      File.write('jsons/rentals.json', json_file)
+    end
   end
 
   def save_data(people, books, rentals)

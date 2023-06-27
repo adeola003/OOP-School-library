@@ -53,11 +53,21 @@ class App
     load_rental_data(rentals_json)
   end
 
+  def get_list(name)
+    if name == 'books'
+      @books
+    elsif name == 'people'
+      @people
+    elsif name == 'rentals'
+      @rentals
+    end
+  end
+
   def fetch_file(filename)
     if File.exist?("jsons/#{filename}.json")
       File.read("jsons/#{filename}.json")
     else
-      json_file = [].to_json
+      json_file = get_list(filename).to_json
       File.write("jsons/#{filename}.json", json_file)
       json_file
     end

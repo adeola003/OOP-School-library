@@ -1,10 +1,14 @@
 [
   {
-    "title": "OOP",
+    "title": "OOP-ruby",
     "author": "ruby"
   },
   {
-    "title": "Sea of souls",
-    "author": "Saule Kilaite"
+    "title": "Ruby programming",
+    "author": "ruby"
+  },
+  {
+    "title": "Rails API development",
+    "author": "gorails"
   }
 ]
