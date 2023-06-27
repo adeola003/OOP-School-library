@@ -1,5 +1,7 @@
 require_relative 'app'
 require_relative 'modules'
+require_relative 'data'
+
 def display_options
   puts "\nPlease choose an option:"
   puts '1. List all books'
@@ -31,13 +33,15 @@ def handle_choice(choice, app)
   when 5 then app.create_rental
   when 6 then app.list_rentals_for_person
   else
+    app.save_data(app.people, app.books, app.rentals)
     exit
   end
 end
 
 def main
-  display_options
+  # app = App.new(data['books'], data['people'], data['rentals'])
   app = App.new
+  app.load_file_data
   run(app)
 end
 

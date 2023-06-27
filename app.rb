@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'classroom'
 require_relative 'student'
 require_relative 'teacher'
@@ -5,13 +6,72 @@ require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
 require_relative 'create_teacher_student'
+require_relative 'data'
 
 class App
   include LibraryUtils
+  include SavingData
+  attr_reader :books, :people, :rentals
+
   def initialize
     @books = []
     @people = []
     @rentals = []
+  end
+
+  def load_book_data(books_json)
+    books_json.each do |book|
+      @books << Book.new(book['title'], book['author'])
+    end
+  end
+
+  def load_people_data(people_json)
+    people_json.each do |person|
+      @people << if person['type'] == 'Teacher'
+                   Teacher.new(person['age'], person['specialization'], person['name'])
+                 elsif person['type'] == 'Student'
+                   parent_info = person['parent_permission'] || true
+                   Student.new(person['age'], 'first', person['name'], parent_permission: parent_info)
+                 end
+    end
+  end
+
+  def load_rental_data(rentals_json)
+    rentals_json.each do |rent|
+      rentee = @people.select { |person| person.name == rent['person_name'] }
+      rented_book = @books.select { |book| book.title == rent['book_title'] }
+      @rentals << Rental.new(rent['date'], rented_book[0], rentee[0])
+    end
+  end
+
+  def load_file_data
+    books_json = JSON.parse(fetch_file('books'))
+    people_json = JSON.parse(fetch_file('people'))
+    rentals_json = JSON.parse(fetch_file('rentals'))
+    load_book_data(books_json)
+    load_people_data(people_json)
+    load_rental_data(rentals_json)
+  end
+
+  def get_list(name)
+    case name
+    when 'books'
+      @books
+    when 'people'
+      @people
+    when 'rentals'
+      @rentals
+    end
+  end
+
+  def fetch_file(filename)
+    if File.exist?("jsons/#{filename}.json")
+      File.read("jsons/#{filename}.json")
+    else
+      json_file = get_list(filename).to_json
+      File.write("jsons/#{filename}.json", json_file)
+      json_file
+    end
   end
 
   def list_all_books
