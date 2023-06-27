@@ -10,7 +10,6 @@ def create_teacher(name, age)
   puts 'Teacher created successfully.'
 end
 
-
 def create_student(name, age)
   print 'Has parent permission? [Y/N] : '
   permission = gets.chomp
@@ -24,4 +23,3 @@ def create_student(name, age)
     puts 'No permission = No account creation'
   end
 end
-
