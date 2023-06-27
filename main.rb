@@ -30,9 +30,8 @@ def handle_choice(choice, app)
   when 4 then app.create_book
   when 5 then app.create_rental
   when 6 then app.list_rentals_for_person
-  when 7 then exit
   else
-    puts 'Invalid option. Please try again.'
+    exit
   end
 end
 
