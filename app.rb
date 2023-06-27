@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'classroom'
 require_relative 'student'
 require_relative 'teacher'
@@ -10,16 +11,12 @@ require_relative 'data'
 class App
   include LibraryUtils
   include SavingData
+  attr_reader :books, :people, :rentals
+
   def initialize
     @books = []
     @people = []
     @rentals = []
-  end
-
-  def save_data
-    save_books
-    save_people
-    save_rentals
   end
 
   def list_all_books
