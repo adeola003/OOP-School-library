@@ -11,7 +11,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Vet\_clinic\] ](#-vet_clinic-)
+- [📖 \[Vet_clinic\] ](#-vet_clinic-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -42,41 +42,34 @@ Save records of who borrowed a given book and when.
 
 ### Tech Stack <a name="tech-stack"></a>
 
-
 <details>
   <summary>Ruby</summary>
 </details>
-
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-
 - **[Add new students or teachers]**
 - **[Add new books.]**
 - **[Save records of who borrowed a given book and when]**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-
 To get a local copy up and running, follow these steps.
-
 
 ### Prerequisites
 
 In order to run this project you need:
 
-
 ### Setup
+
 Clone this repository to your desired folder:
 
 ```sh
@@ -85,26 +78,30 @@ Clone this repository to your desired folder:
 ```
 
 ### Install
--Command: install bundle
 
+```sh
+  bundle install
+```
 
 <!-- ### Usage
 -step 1: create Database vet clinic
 -step 2: create table animals
 insert files... -->
 
-
 <!-- AUTHORS -->
+
+## Authors <a name="authors"></a>
 
 👤 **Abdel-Khafid SALAOU**
 
 - GitHub: [@githubhandle](https://github.com/adeola003)
 - Twitter: [@twitterhandle](https://twitter.com/khadaf6)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou)
+
 #### 👤 **Mahabub Alam**
 
 - GitHub: [mahabubx7](https://github.com/mahabubx7)
-- Twitter: [@mahabub__7](https://twitter.com/mahabub__7)
+- Twitter: [@mahabub\_\_7](https://twitter.com/mahabub__7)
 - Linkedin: [in/mahabubx7](https://www.linkedin.com/in/mahabubx7)
 
 <!-- FUTURE FEATURES -->
@@ -120,13 +117,11 @@ insert files... -->
 
 Contributions, issues, and feature requests are welcome!
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
 
 If you like this repo dont forget to give it a star.
 
