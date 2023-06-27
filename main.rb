@@ -1,4 +1,5 @@
 require_relative 'app'
+require_relative 'modules'
 def display_options
   puts "\nPlease choose an option:"
   puts '1. List all books'
@@ -10,10 +11,34 @@ def display_options
   puts '7. Quit'
 end
 
+def run(app)
+  puts 'Welcome to the Console Library App!'
+  loop do
+    display_options
+    choice = gets.chomp.to_i
+    handle_choice(choice, app)
+    break if choice == 7
+  end
+  puts 'Thank you for using the Console Library App. Goodbye!'
+end
+
+def handle_choice(choice, app)
+  case choice
+  when 1 then app.list_all_books
+  when 2 then app.list_all_people
+  when 3 then app.create_person
+  when 4 then app.create_book
+  when 5 then app.create_rental
+  when 6 then app.list_rentals_for_person
+  else
+    puts 'Invalid option. Please try again.'
+  end
+end
+
 def main
   display_options
   app = App.new
-  app.run
+  run(app)
 end
 
 main

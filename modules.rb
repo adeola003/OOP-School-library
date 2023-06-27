@@ -1,25 +1,3 @@
-def list_all_books
-  if @books.empty?
-    puts 'No books available.'
-  else
-    puts 'Listing all books:'
-    @books.each_with_index do |book, index|
-      puts "#{index}. #{book.title} by #{book.author}"
-    end
-  end
-end
-
-def list_all_people
-  if @people.empty?
-    puts 'No people available.'
-  else
-    puts 'Listing all people:'
-    @people.each_with_index do |person, index|
-      puts "#{index}. #{person.name} - (ID: #{person.id})"
-    end
-  end
-end
-
 module LibraryUtils
   def find_person_by_name(name)
     @people.find { |person| person.name == name }
