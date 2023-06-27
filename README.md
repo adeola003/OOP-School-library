@@ -73,7 +73,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need: 
+In order to run this project you need:
 
 
 ### Setup
@@ -101,6 +101,11 @@ insert files... -->
 - GitHub: [@githubhandle](https://github.com/adeola003)
 - Twitter: [@twitterhandle](https://twitter.com/khadaf6)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou)
+#### 👤 **Mahabub Alam**
+
+- GitHub: [mahabubx7](https://github.com/mahabubx7)
+- Twitter: [@mahabub__7](https://twitter.com/mahabub__7)
+- Linkedin: [in/mahabubx7](https://www.linkedin.com/in/mahabubx7)
 
 <!-- FUTURE FEATURES -->
 

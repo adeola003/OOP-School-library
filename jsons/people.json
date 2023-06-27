@@ -1,16 +1,23 @@
 [
   {
     "type": "Student",
-    "id": 80,
+    "id": 58,
     "age": 25,
     "name": "mahabub",
     "parent_permission": true
   },
   {
     "type": "Teacher",
-    "id": 7,
+    "id": 44,
     "age": 44,
     "name": "Abel",
+    "specialization": "dev"
+  },
+  {
+    "type": "Teacher",
+    "id": 50,
+    "age": 29,
+    "name": "Adeola",
     "specialization": "dev"
   }
 ]
