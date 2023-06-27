@@ -5,14 +5,21 @@ require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
 require_relative 'create_teacher_student'
-require_relative
+require_relative 'data'
 
 class App
   include LibraryUtils
+  include SavingData
   def initialize
     @books = []
     @people = []
     @rentals = []
+  end
+
+  def save_data
+    save_books
+    save_people
+    save_rentals
   end
 
   def list_all_books
