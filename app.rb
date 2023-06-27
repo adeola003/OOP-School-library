@@ -4,6 +4,7 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
+require_relative 'create_teacher_student'
 
 class App
   include LibraryUtils
@@ -13,40 +14,25 @@ class App
     @rentals = []
   end
 
-  def run
-    puts 'Welcome to the Console Library App!'
-    loop do
-      display_options
-      choice = gets.chomp.to_i
-      handle_choice(choice)
-      break if choice == 7
-    end
-    puts 'Thank you for using the Console Library App. Goodbye!'
-  end
-
-  private
-
-  def display_options
-    puts "\nPlease choose an option:"
-    puts '1. List all books'
-    puts '2. List all people'
-    puts '3. Create a person'
-    puts '4. Create a book'
-    puts '5. Create a rental'
-    puts '6. List rentals for a person'
-    puts '7. Quit'
-  end
-
-  def handle_choice(choice)
-    case choice
-    when 1 then list_all_books
-    when 2 then list_all_people
-    when 3 then create_person
-    when 4 then create_book
-    when 5 then create_rental
-    when 6 then list_rentals_for_person
+  def list_all_books
+    if @books.empty?
+      puts 'No books available.'
     else
-      puts 'Invalid option. Please try again.'
+      puts 'Listing all books:'
+      @books.each_with_index do |book, index|
+        puts "#{index}. #{book.title} by #{book.author}"
+      end
+    end
+  end
+
+  def list_all_people
+    if @people.empty?
+      puts 'No people available.'
+    else
+      puts 'Listing all people:'
+      @people.each_with_index do |person, index|
+        puts "#{index}. #{person.name} - (ID: #{person.id})"
+      end
     end
   end
 
@@ -63,28 +49,6 @@ class App
       create_teacher(name, age)
     else
       create_student(name, age)
-    end
-  end
-
-  def create_teacher(name, age)
-    print 'Specialization: '
-    specialization = gets.chomp
-    person = Teacher.new(age, specialization, name)
-    @people << person
-    puts 'Teacher created successfully.'
-  end
-
-  def create_student(name, age)
-    print 'Has parent permission? [Y/N] : '
-    permission = gets.chomp
-    if permission == 'Y'
-      student = Student.new(age, 'first', name)
-      classroom = Classroom.new('first')
-      classroom.add_student(student)
-      @people << student
-      puts 'Person created successfully.'
-    else
-      puts 'No permission = No account creation'
     end
   end
 
