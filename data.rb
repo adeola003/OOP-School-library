@@ -1,10 +1,9 @@
 require 'json'
-# require_relative 'Teacher'
-# require_relative 'Student'
+require_relative 'teacher'
+require_relative 'student'
+require_relative 'rentals'
 
 module SavingData
-  # ...
-
   def save_people(people)
     saved_people = []
     people.each do |person|
@@ -30,12 +29,11 @@ module SavingData
   def save_rentals(rentals)
     saved_rentals = []
     rentals.each do |rental|
-      saved_rentals << { 'person_name' => rental.person.name, 'books' => rental.book.title, 'date' => rental.date }
+      saved_rentals << { 'person_name' => rental.person.name, 'book_title' => rental.book.title, 'date' => rental.date }
     end
     File.write('jsons/rentals.json', JSON.pretty_generate(saved_rentals))
   end
 
-  # ...
   def save_data(people, books, rentals)
     save_people(people)
     save_books(books)
