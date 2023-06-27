@@ -5,6 +5,7 @@ require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
 require_relative 'create_teacher_student'
+require_relative
 
 class App
   include LibraryUtils
