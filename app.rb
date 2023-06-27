@@ -54,11 +54,12 @@ class App
   end
 
   def get_list(name)
-    if name == 'books'
+    case name
+    when 'books'
       @books
-    elsif name == 'people'
+    when 'people'
       @people
-    elsif name == 'rentals'
+    when 'rentals'
       @rentals
     end
   end
