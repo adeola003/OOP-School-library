@@ -4,7 +4,6 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rentals'
 require_relative 'modules'
-require_relative 'homepage'
 require_relative 'create_teacher'
 
 class App
